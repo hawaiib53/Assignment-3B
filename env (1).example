@@ -1,0 +1,23 @@
+# Discord webhook URL to post AQI alerts to (required).
+# Create one in Discord: Server Settings > Integrations > Webhooks > New Webhook
+DISCORD_WEBHOOK_URL=
+
+# ZIP code to check the AQI forecast for.
+ZIP_CODE=54017
+
+# Country code for ZIP lookup (zippopotam.us format).
+COUNTRY_CODE=us
+
+# AQI above this value triggers the red "AQI Index over 50" alert format;
+# at or below it, a plain status update is posted instead. A post happens
+# every run either way.
+AQI_THRESHOLD=50
+
+# Minimum seconds between Discord posts, regardless of how often the
+# script runs (default 3600 = 1 hour). A post happens every run, whether
+# AQI is above or below the threshold.
+MIN_ALERT_INTERVAL_SECONDS=3600
+
+# Where to persist the last-alert timestamp so the rate limit survives
+# across separate runs of the script.
+STATE_FILE=state/last_alert.json
