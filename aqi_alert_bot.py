@@ -41,7 +41,7 @@ class ConfigError(RuntimeError):
 
 
 def get_env(name, default=None, required=False):
-    value = os.environ.get(name, default)
+    value = os.environ.get(name) or default
     if required and not value:
         raise ConfigError(f"Missing required environment variable: {name}")
     return value
